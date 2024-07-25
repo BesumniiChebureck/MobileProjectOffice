@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.TaskInfoActivity">
+
+    <TextView
+        android:id="@+id/infoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Информация по задаче"
+        android:textSize="28sp"
+        android:fontFamily="@font/jost"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"/>
+
+    <RelativeLayout
+        android:id="@+id/taskInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/accent"
+        app:layout_constraintTop_toBottomOf="@id/infoLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnChangeTaskInfo"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="40dp"
+        android:gravity="start">
+
+        <ImageView
+            android:id="@+id/taskNameImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/menu"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/taskName"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Название: "
+            android:textSize="20sp"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/taskNameImage"/>
+
+        <ImageView
+            android:id="@+id/priorityImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/priority"
+            android:padding="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/taskNameImage"/>
+
+        <LinearLayout
+            android:id="@+id/priorityLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/taskName"
+            android:layout_toEndOf="@id/taskNameImage"
+            android:weightSum="11">
+
+            <TextView
+                android:id="@+id/priorityHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Приоритет: "
+                android:textSize="20sp"
+                android:fontFamily="@font/jost"
+                android:textColor="@color/black"
+                android:gravity="center"
+                />
+
+            <Spinner
+                android:id="@+id/priority"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/jost"
+                android:textColor="@color/black"
+                android:popupBackground="@color/white"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/datesImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/calendar"
+            android:padding="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/priorityLayout"/>
+
+        <TextView
+            android:id="@+id/dateStart"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Дата начала: "
+            android:textSize="20sp"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/priorityLayout"
+            android:layout_toEndOf="@id/taskNameImage"/>
+
+        <TextView
+            android:id="@+id/dateEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Дата завершения: "
+            android:textSize="20sp"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_below="@id/dateStart"
+            android:layout_toEndOf="@id/taskNameImage"/>
+
+        <ImageView
+            android:id="@+id/employeeImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/person"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/dateEnd"/>
+
+        <TextView
+            android:id="@+id/employee"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Исполнитель: "
+            android:textSize="20sp"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/dateEnd"
+            android:layout_toEndOf="@id/taskNameImage"/>
+
+        <ImageView
+            android:id="@+id/statusImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/status"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/employee"/>
+
+        <LinearLayout
+            android:id="@+id/statusLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/employee"
+            android:layout_toEndOf="@id/taskNameImage"
+            android:weightSum="11">
+
+            <TextView
+                android:id="@+id/statusHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Статус: "
+                android:textSize="20sp"
+                android:fontFamily="@font/jost"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <Spinner
+                android:id="@+id/status"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/jost"
+                android:textColor="@color/black"
+                android:popupBackground="@color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnChangeTaskInfo"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/taskInfoLayout"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners_8"
+        android:fontFamily="@font/jost"
+        android:onClick="changeTaskInfo"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="Изменить задачу"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/taskInfoLayout"
+        app:layout_constraintBottom_toTopOf="@id/btnCreateBid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="30dp"
+        />
+
+    <Button
+        android:id="@+id/btnCreateBid"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/btnChangeTaskInfo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners_8"
+        android:fontFamily="@font/jost"
+        android:onClick="createBid"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="Отправить на проверку"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/btnChangeTaskInfo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="80dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

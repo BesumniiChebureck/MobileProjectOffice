@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.TaskActivity">
+
+    <TextView
+        android:id="@+id/tasksHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Список задач"
+        android:textSize="26sp"
+        android:fontFamily="@font/jost"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"/>
+
+    <TextView
+        android:id="@+id/openBids"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Мои заявки"
+        android:textSize="20sp"
+        android:fontFamily="@font/jost"
+        android:textColor="#33c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="30dp"
+        android:onClick="getOwnBids"/>
+
+    <LinearLayout
+        android:id="@+id/employeeLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tasksHeader"
+        android:layout_marginHorizontal="20dp"
+        android:weightSum="11">
+
+        <Spinner
+            android:id="@+id/employee"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_weight="5"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:popupBackground="@color/white"/>
+
+        <CheckBox
+            android:id="@+id/cbEmployee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Учитывать"
+            android:textSize="16sp"
+            android:checked="true"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/statusLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/employeeLayout"
+        android:layout_marginHorizontal="20dp"
+        android:weightSum="11">
+
+        <Spinner
+            android:id="@+id/status"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_weight="5"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:popupBackground="@color/white"/>
+
+        <CheckBox
+            android:id="@+id/cbStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Учитывать"
+            android:textSize="16sp"
+            android:checked="true"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/priorityLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusLayout"
+        android:layout_marginHorizontal="20dp"
+        android:weightSum="11">
+
+        <Spinner
+            android:id="@+id/priority"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_weight="5"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:popupBackground="@color/white"/>
+
+        <CheckBox
+            android:id="@+id/cbPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Учитывать"
+            android:textSize="16sp"
+            android:checked="true"
+            android:fontFamily="@font/jost"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/datePick"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="#0000"
+        android:src="@drawable/calendar"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/priorityLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="calendar"
+        android:onClick="selectDate"/>
+
+    <TextView
+        android:id="@+id/datePresent"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="01-01-2024"
+        android:textSize="18sp"
+        android:fontFamily="@font/jost"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/priorityLayout"
+        app:layout_constraintLeft_toRightOf="@id/datePick"/>
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded_corners_8"
+        android:text="Поиск"
+        android:textSize="16sp"
+        android:fontFamily="@font/jost"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/priorityLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="findTasks"/>
+
+    <CheckBox
+        android:id="@+id/cbSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Упорядочить по дате начала"
+        android:textSize="16sp"
+        android:fontFamily="@font/jost"
+        android:textColor="@color/black"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search"/>
+
+    <FrameLayout
+        android:id="@+id/tasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbSort"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
